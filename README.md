@@ -1,6 +1,6 @@
-# stats220
+<h1 align = "center" font = "Crella">${\color{cyan}Stats\space \color{aqua}220}$</h1>
 
-This is my repo for STATS 220. 
+<ins>This is my repo for STATS 220. </ins>
 
 A little about me:
 
@@ -12,16 +12,18 @@ A meme that captures how I currently feel about my university studies is
 <br>[![Fern1](https://c.tenor.com/o-EbET0S3SoAAAAd/tenor.gif)](https://c.tenor.com/o-EbET0S3SoAAAAd/tenor.gif)
 
 
-# This is the first level of header
+# $\textcolor{pink}{This\ is\ the\ first\ level\ of\ header}$
 ======================================
-### This is the second level of header
+### $\textcolor{orangered}{This\ is\ the\ second\ level\ of\ header}$
 ======================================
 * Here's one example of bullet point
 2. Here's another example of bullet point
 <p>Here's the <strong>bold</strong> font<br>
 Here's the <em>italic</em> font</p>
 
-<strong> <em> Here's my [Bilibili](https://space.bilibili.com/36023418) page. </em> </strong>
+<strong> <em> Here's my [Bilibili](https://space.bilibili.com/36023418) page. </em> </strong><br>
+~~follow my acc!~~<br>
+<!-- Im running this account and posting my daily life/game/piano videos in this website! -->
 
 <strong> <em> Here's my [Youtube](https://www.youtube.com/@Asami_Akito) page. </em> </strong>
 
