@@ -1,0 +1,102 @@
+---
+title: Game Play Analytics
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+library(tidyverse)
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQNfffI7pW3SpAGlO3bBGx6RQBoG4CL9OrQ7sChMHXvrgWci22OVJ4MPqxwPWAexEj4PD3XyQ76WA9N/pub?output=csv")
+latest_data <- logged_data %>%
+  rename(
+    game = "Do you play Game?",
+    play_time = "How many hours do you usually play games per week?",
+    platform = "On what platform do you usually play games?"
+  )
+
+summary(latest_data$play_time)
+mean_play_time <- mean(latest_data$play_time, na.rm = TRUE)
+median_play_time <- median(latest_data$play_time, na.rm = TRUE)
+
+game_counts <- latest_data %>% 
+  count(game) %>% 
+  mutate(percentage = n / sum(n) * 100)
+
+platform_split <- latest_data %>%
+  separate_rows(platform, sep = ",") %>%
+  mutate(platform = str_trim(platform)) %>%
+  filter(platform != "")
+
+platform_counts <- platform_split %>% 
+  count(platform) %>% 
+  mutate(percentage = n / nrow(latest_data) * 100)
+
+ggplot(platform_counts, aes(x = reorder(platform, -n), y = n)) +
+  geom_col(fill = "blue") +
+  labs(
+    title = "platform distribution",
+    x = "platform",
+    y = "number_of_ppl"
+  ) +
+  theme_minimal()
+
+play_time_categories <- latest_data %>%
+  mutate(play_time_group = case_when(
+    play_time < 10 ~ "less than 10 hour",
+    play_time >= 10 & play_time <= 30 ~ "10 to 30 hours",
+    play_time > 30 ~ "more than 30 hours"
+  )) %>%
+  count(play_time_group) %>%
+  mutate(percentage = n / sum(n) * 100)
+
+
+```
+
+```{css}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+}
+```
+
+
+```{r}
+ggplot(play_time_categories, aes(x = factor(play_time_group, 
+                                            levels = c("less than 10 hour", 
+                                                       "10 to 30 hours", 
+                                                       "more than 30 hours")), 
+                                 y = n)) +
+  geom_col(fill = "orange") +
+  labs(
+    title = "Weekly Play Time Distribution",
+    x = "Play Time",
+    y = "number_of_ppl"
+  ) +
+  theme_minimal()
+```
+
+The average play time is `r round(mean_play_time, 1)` hours per week, with a median of `r round(median_play_time, 1)` hours.
+
+`r play_time_categories$play_time_group[which.max(play_time_categories$n)]` is the most common play duration category, representing `r round(play_time_categories$percentage[which.max(play_time_categories$n)], 1)`% of people.
+
+
+
+```{r}
+ggplot(platform_counts, aes(x = reorder(platform, -n), y = n)) +
+  geom_col(fill = "blue") +
+  labs(
+    title = "platform distribution",
+    x = "platform",
+    y = "number_of_ppl"
+  ) +
+  theme_minimal()
+```
+
+`r platform_counts$platform[which.max(platform_counts$n)]` is the most popular platform, with `r round(platform_counts$percentage[which.max(platform_counts$n)], 1)`% of people using it.
+
