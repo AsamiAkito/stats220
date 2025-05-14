@@ -26,13 +26,17 @@ summary(cars)
 ```
 
 ## Weekly Logging Timeline
-{alt="Line chart showing weekday distribution of observations"}
 
-Gaming Intensity by Platform
-{alt="Tile plot showing platform vs. game intensity level"}
+![Line chart showing weekday distribution of observations](plot1.png)
 
-Play Time Distribution
-{alt="Boxplot showing time spent per intensity level"}
+## Gaming Intensity by Platform
 
-Average Play Time by Platform
-{alt="Bar chart showing average hours spent on each platform"}
+![Tile plot showing platform vs. game intensity level](plot2.png)
+
+## Play Time Distribution
+
+![Boxplot showing time spent per intensity level](plot3.png)
+
+## Average Play Time by Platform
+
+![Bar chart showing average hours spent on each platform](plot4.png)
