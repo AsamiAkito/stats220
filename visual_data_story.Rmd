@@ -1,0 +1,38 @@
+---
+title: "Game Platform and Play Time Observation"
+author: "Xiaoshi Liu"
+date: "2025-05-14"
+output: html_document
+---
+
+```{css echo=FALSE}
+body {
+  background-color: #f9f9f9;
+  font-family: "Helvetica Neue", sans-serif;
+}
+h2 {
+  color: #2c3e50;
+}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Context
+
+This data was collected through repeated observations over time, noting gaming behavior including time spent playing games and preferred platforms. Data was logged using a structured Google Form, capturing key variables: hours per week, platform, and timestamp.
+
+```{r cars}
+summary(cars)
+```
+
+## Weekly Logging Timeline
+{alt="Line chart showing weekday distribution of observations"}
+
+Gaming Intensity by Platform
+{alt="Tile plot showing platform vs. game intensity level"}
+
+Play Time Distribution
+{alt="Boxplot showing time spent per intensity level"}
+
+Average Play Time by Platform
+{alt="Bar chart showing average hours spent on each platform"}

@@ -1,0 +1,32 @@
+---
+title: "Project 4"
+author: "Xiaoshi Liu"
+date: "2025-05-14"
+output: html_document
+---
+
+## Introduction
+
+The focus of this project was to observe how people engage with gaming platforms and their weekly play durations. I recorded observational data over multiple time periods using a Google Form. I did not add new fields due to time constraints, but considered adding play mode (solo vs. team) and game genre for future expansion.
+
+All data was collected by me. I focused on myself and people I observed in casual settings (home, dorm). I chose to examine platform preferences and intensity (weekly hours) because I wanted to understand how serious vs. casual gamers differ.
+
+I used `ggplot2`, `lubridate`, and `stringr` to manipulate and visualize data. I faced issues with inconsistent platform naming at first but resolved this with `str_detect()` and `separate_rows()`.
+
+## Visual data story
+
+You can view my data story at:
+
+[https://asamiakito.github.io/stats220/Project4/visual_data_story.html](https://asamiakito.github.io/stats220/Project4/visual_data_story.html)
+
+My visual story is creative in that I used consistent color themes, time analysis with weekdays, tile heatmaps for platform-intensity comparison, and annotated boxplots. The data story guides the reader step-by-step using visual and structural coherence.
+
+## Learning reflection
+
+From Module 4, I learned that visuals are strongest when tied to narrative. The way a plot is placed, labeled, and colored affects how information is absorbed. This changed how I think about communication through data.
+
+I want to explore `shiny` to turn future observational projects into interactive dashboards and try web scraping with `rvest`.
+
+## Appendix
+
+```{r file='data_visualisation.R', eval=FALSE, echo=TRUE}
